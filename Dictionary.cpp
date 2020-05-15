@@ -53,26 +53,6 @@ bool isLastNode(struct TrieNode* root)
             return 0;
     return 1;
 }
-
-bool search(struct TrieNode *root, const string key)
-{
-    struct TrieNode *pCrawl = root;
-    for (int level = 0; level < key.length(); level++)
-    {
-        int index = CHAR_TO_ASCIIval(key[level]);
-
-        if (!pCrawl->children[index])
-            return false;
-
-        pCrawl = pCrawl->children[index];
-    }
-
-    return (pCrawl != NULL && pCrawl->isWordEnd);
-}
-
-
-
-
 void wordRecord(struct TrieNode* root, string currPrefix)
 {
 
